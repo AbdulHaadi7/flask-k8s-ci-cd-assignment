@@ -1,18 +1,14 @@
-# Use official Python slim image
-FROM python:3.13-slim
+# Dockerfile
+FROM python:3.13-slim AS build
 
-# Set working directory
 WORKDIR /app
 
-# Copy requirements from root and install
+# Copy requirements from root
 COPY requirements.txt .
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the Flask app
+# Copy the rest of the app folder
 COPY app/ .
 
-# Expose port
-EXPOSE 5000
-
-# Command to run app
-CMD ["python", "main.py"]
+CMD ["python", "app/main.py"]
