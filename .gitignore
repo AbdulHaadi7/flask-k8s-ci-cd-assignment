@@ -1,1 +1,6 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore local minikube binary
 minikube-linux-amd64
